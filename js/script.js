@@ -252,6 +252,7 @@ function init() {
     $('mainContainer').style.opacity = 1;
     $('dateContainer').style.opacity = 1;
     $('notesWidget').style.opacity = 1;
+    $('mainMenuWidget').style.opacity = 1;
 }
 
 function initSearchBar() {
