@@ -249,18 +249,18 @@ function scaleHelp () {
 
     var searchBarRect = searchInput.getBoundingClientRect();
 
-    var distanceToBottom = window.innerHeight - searchBarRect.bottom;
-    var singleHeight = (distanceToBottom - 10 - (children.length * 10)) / children.length;
+    var distanceToBottom = window.innerHeight - searchBarRect.bottom - 10;
+    var singleHeight = (distanceToBottom - (children.length * 10)) / children.length;
 
     var style = window.getComputedStyle(children[0], null);
     
-    var oneHeight = parseInt (style.getPropertyValue("height").replace ("px", ""));
+    var rawSingleHeight = parseInt (style.getPropertyValue("height").replace ("px", ""));
 
     console.log (distanceToBottom)
 
-    var paddingHeight = (singleHeight - oneHeight) / 2;
+    var paddingHeight = (singleHeight - rawSingleHeight) / 2;
 
-    if (paddingHeight < 20 || distanceToBottom < oneHeight * children.length) {
+    if (paddingHeight < 20 || distanceToBottom < rawSingleHeight * children.length) {
         $('searchHelp').style.marginTop = paddingHeight/2 + "px";
 
         for (var i = 0; i < children.length; i++) {
@@ -361,6 +361,15 @@ function handleNotes(event, focus) {
         }
     }
 }
+
+function handleMenu (event, focus) {
+    if (focus) {
+        addClass('mainMenuContainer', "active");
+    } else {
+        removeClass('mainMenuContainer', "active");
+    }
+}
+
 var ignoredKeys = [9, 13, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145];
 
 function handleKeydown(event) {
