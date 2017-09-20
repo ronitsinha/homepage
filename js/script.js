@@ -15,7 +15,7 @@ var searchSources = [
     ["w", "http://en.wikipedia.org/w/index.php?search={Q}", "Wikipedia"],
     ["y", "https://www.youtube.com/results?search_query={Q}", "YouTube"],
     ["f", "https://filepursuit.com/search/{Q}/", "FilePursuit"],
-    // ["t", "https://1337x.to/search/{Q}/1/", "1337X"]
+    ["t", "https://1337x.to/search/{Q}/1/", "1337X"]
 ];
 var svgReddit = "<svg style=\"width:24px;height:24px\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M24 11.779c0-1.459-1.192-2.645-2.657-2.645-.715 0-1.363.286-1.84.746-1.81-1.191-4.259-1.949-6.971-2.046l1.483-4.669 4.016.941-.006.058c0 1.193.975 2.163 2.174 2.163 1.198 0 2.172-.97 2.172-2.163s-.975-2.164-2.172-2.164c-.92 0-1.704.574-2.021 1.379l-4.329-1.015c-.189-.046-.381.063-.44.249l-1.654 5.207c-2.838.034-5.409.798-7.3 2.025-.474-.438-1.103-.712-1.799-.712-1.465 0-2.656 1.187-2.656 2.646 0 .97.533 1.811 1.317 2.271-.052.282-.086.567-.086.857 0 3.911 4.808 7.093 10.719 7.093s10.72-3.182 10.72-7.093c0-.274-.029-.544-.075-.81.832-.447 1.405-1.312 1.405-2.318zm-17.224 1.816c0-.868.71-1.575 1.582-1.575.872 0 1.581.707 1.581 1.575s-.709 1.574-1.581 1.574-1.582-.706-1.582-1.574zm9.061 4.669c-.797.793-2.048 1.179-3.824 1.179l-.013-.003-.013.003c-1.777 0-3.028-.386-3.824-1.179-.145-.144-.145-.379 0-.523.145-.145.381-.145.526 0 .65.647 1.729.961 3.298.961l.013.003.013-.003c1.569 0 2.648-.315 3.298-.962.145-.145.381-.144.526 0 .145.145.145.379 0 .524zm-.189-3.095c-.872 0-1.581-.706-1.581-1.574 0-.868.709-1.575 1.581-1.575s1.581.707 1.581 1.575-.709 1.574-1.581 1.574z\"/></svg>";
 var svgCode = "<svg style=\"width:24px;height:24px\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z\" /></svg>";
@@ -26,66 +26,12 @@ var svgDownloads = "<svg style=\"width:24px;height:24px\" xmlns=\"http://www.w3.
 var svgStream = "<svg style=\"width:24px;height:24px\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M19 12c-.341 0-.673-.033-1-.08v1.08h-2v-1.683c-.749-.356-1.427-.837-2-1.422v3.105h-8v-6h6.294c-.19-.634-.294-1.305-.294-2h-12v19h20v-12.08c-.327.047-.659.08-1 .08zm-15 10h-2v-2h2v2zm0-4h-2v-2h2v2zm0-5h-2v-2h2v2zm0-4h-2v-2h2v2zm10 13h-8v-6h8v6zm4 0h-2v-2h2v2zm0-4h-2v-2h2v2zm-3.711-14.667c.688-1.941 2.534-3.333 4.711-3.333 2.762 0 5 2.239 5 5 0 .285-.029.562-.074.833h-.635c-.474 0-.55-.211-.806-1.025-.186-.589-.493-1.479-1.171-1.479-.689 0-.957.923-1.205 1.669-.137.405-.217.65-.339.65-.116 0-.171-.245-.308-.65-.258-.759-.551-1.669-1.235-1.669-.711 0-1.016.995-1.22 1.628-.147.46-.194.691-.324.691-.111 0-.146-.187-.275-.56-.293-.85-.386-1.755-1.691-1.755h-.428zm8.941 3.334c-.957 0-1.185-.459-1.543-1.485-.221-.636-.245-.864-.373-.864-.126 0-.161.262-.408.964-.216.615-.514 1.379-1.136 1.379-.693 0-.987-.927-1.243-1.698-.142-.427-.177-.622-.3-.622-.115 0-.146.175-.291.598-.265.781-.559 1.722-1.253 1.722-.687 0-1-.926-1.171-1.479-.252-.818-.297-1.014-.755-1.014h-.684c-.044.27-.073.547-.073.832 0 2.761 2.238 5 5 5 2.177 0 4.022-1.392 4.709-3.333h-.479z\" /></svg>";
 var svgCloud = "<svg style=\"width:24px;height:24px\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M24 21v-6h-18v6h18zm-3-4c.553 0 1 .448 1 1s-.447 1-1 1c-.552 0-1-.448-1-1s.448-1 1-1zm-7.806 0h1.275l-.864 2h-1.274l.863-2zm-2.141 0h1.275l-.863 2h-1.275l.863-2zm-2.19 0h1.275l-.863 2h-1.275l.863-2zm-4.863.941c-2.253-.29-4-2.194-4-4.524 0-2.252 1.626-4.121 3.767-4.506.177-3.294 2.895-5.911 6.233-5.911s6.056 2.617 6.233 5.911c2.005.361 3.541 2.029 3.729 4.089h-1.991c-.279-2.105-2.674-2.333-3.65-2.401.117-1.958-.555-5.599-4.321-5.599-4.438 0-4.359 4.75-4.321 5.599-.945-.037-3.679.341-3.679 2.818 0 1.223.856 2.245 2 2.511v2.013z\" /></svg>";
 var linkMenu = [
-    /*[svgDownloads, "blue", "-HEAD-"],
-    ["Zooqle", "https://zooqle.com", ""],
-    ["Sky Torrents", "https://www.skytorrents.in", ""],
-    ["The Pirate Bay", "https://thepiratebay.org", ""],
-    ["Kickass Torrents", "https://katcr.co/new/", ""],
-    ["Torrentz", "https://torrentz2.eu", ""],
-    ["1337X", "https://1337x.to/home/", ""],
-    ["Snowfl", "https://snowfl.com", ""],
-    ["RARBG", "https://rarbg.to/torrents.php", ""],
-    ["Nyaa", "https://nyaa.si", ""],
-    ["AnimeRG", "http://animerg.se", ""],
-    ["LimeTorrents", "https://www.limetorrents.cc", ""],
-    ["Demonoid", "https://www.demonoid.pw", ""],
-    ["Torlock", "https://www.torlock.com", ""],
-    ["Warez-BB", "https://www.warez-bb.org", ""],
-    ["Mobilism", "https://forum.mobilism.org", ""],
-    ["On HAX", "https://onhax.me", ""],
-    ["ACMarket", "https://www.acmarket.net", ""],
-    ["AudioZ", "https://audioz.download", ""],
-    ["PDF Giant", "http://pdf-giant.com", ""],
-    ["MagazineLib", "http://magazinelib.com", ""],
-    ["MyComicPost", "http://mycomicpost.net", ""],
-    ["ComicsCodes", "https://www.comicscodes.com", ""],
-    ["Sci-Hub", "http://sci-hub.io", ""],
-    ["LibGen", "http://libgen.io", ""],
-    ["B-OK", "http://b-ok.org", ""],
-    ["Ebook Bike", "https://ebook.bike", ""],
-    ["FilePursuit", "https://filepursuit.com", ""],
-    ["FitGirl Repacks", "http://fitgirl-repacks.site", ""],
-    ["IGG-Games", "http://igg-games.com", ""],*/
     [svgStream, "purple", "-HEAD-"],
     ["Netflix", "https://www.netflix.com", ""],
     ["Hulu", "https://www.hulu.com", ""],
     ["Twit", "https://twit.tv", ""],
     ["SoundCloud", "https://soundcloud.com", ""],
     ["Crunchyroll", "http://www.crunchyroll.com", ""],
-    /*["UstreaMix", "https://ustreamyx.com", ""],
-    ["Alluc", "https://www.alluc.ee", ""],
-    ["PrimeWire", "https://www.primewire.is", ""],
-    ["GoMovies", "https://gostream.is", ""],
-    ["SolarMovie", "https://solarmoviez.to", ""],
-    ["FMovies", "https://fmovies.is", ""],
-    ["YesMovies", "https://yesmovies.to", ""],
-    ["Converto", "https://www.converto.io/en", ""],
-    ["DatMusic", "https://datmusic.xyz", ""],
-    ["MyFreeMP3", "https://my-free-mp3.net", ""],
-    ["MP3 Snatch", "https://mp3snatch.com", ""],
-    ["Deezloader", "http://www.solidfiles.com/v/vppDzKWBd3XAY", ""],
-    ["Soulseek", "http://www.slsknet.org", ""],
-    ["Audio Book Bay", "http://audiobookbay.nl", ""],
-    ["NFL Streams", "https://www.reddit.com/r/nflstreams/", ""],
-    ["NBA Streams", "https://www.reddit.com/r/nbastreams/", ""],
-    ["MLB Streams", "https://www.reddit.com/r/MLBStreams/", ""],
-    ["NHL Streams", "https://www.reddit.com/r/NHLStreams/", ""],
-    ["Puck Streams", "https://www.reddit.com/r/puckstreams/", ""],
-    ["Soccer Streams", "https://www.reddit.com/r/soccerstreams/", ""],
-    ["Boxing Streams", "https://www.reddit.com/r/BoxingStreams/", ""],
-    ["MMA Streams", "https://www.reddit.com/r/MMAStreams/", ""],
-    ["NCAA Streams", "https://www.reddit.com/r/ncaaBBallStreams/", ""],
-    ["CFB Streams", "https://www.reddit.com/r/CFBStreams/", ""],*/
     [svgSocial, "green", "-HEAD-"],
     ["YouTube", "https://www.youtube.com", ""],
     ["Facebook", "https://www.facebook.com", ""],
@@ -116,19 +62,11 @@ var linkMenu = [
     ["/r/PCGaming", "https://www.reddit.com/r/pcgaming/", ""],
     ["/r/TechSupport", "https://www.reddit.com/r/techsupport/", ""],
     ["/r/WebHosting", "https://www.reddit.com/r/webhosting/", ""],
-    ["/r/SeedBoxes", "https://www.reddit.com/r/seedboxes/", ""],
-    ["/r/Trackers", "https://www.reddit.com/r/trackers/", ""],
-    ["/r/Piracy", "https://www.reddit.com/r/Piracy/", ""],
-    ["/r/Privacy", "https://www.reddit.com/r/privacy/", ""],
     ["/r/Bitcoin", "https://www.reddit.com/r/Bitcoin/", ""],
     ["/r/Monero", "https://www.reddit.com/r/Monero/", ""],
     ["/r/CryptoCurrency", "https://www.reddit.com/r/CryptoCurrency/", ""],
     ["/r/HomeNetworking", "https://www.reddit.com/r/HomeNetworking/", ""],
     ["/r/HomeLab", "https://www.reddit.com/r/homelab/", ""],
-    ["/r/MegaLinks", "https://www.reddit.com/r/megalinks/", ""],
-    ["/r/CrackWatch", "https://www.reddit.com/r/CrackWatch/", ""],
-    ["/r/SoftwareSwap", "https://www.reddit.com/r/microsoftsoftwareswap/", ""],
-    ["/r/NSFW411", "https://www.reddit.com/r/NSFW411/wiki/index", ""],
     [svgCode, "red", "-HEAD-"],
     ["GitHub", "https://github.com", ""],
     ["Envato", "https://market.envato.com", ""],
@@ -252,6 +190,7 @@ function init() {
     $('mainContainer').style.opacity = 1;
     $('dateContainer').style.opacity = 1;
     $('notesWidget').style.opacity = 1;
+    $('mainMenuWidget').style.opacity = 1;
 }
 
 function initSearchBar() {
@@ -306,18 +245,18 @@ function scaleHelp () {
 
     var searchBarRect = searchInput.getBoundingClientRect();
 
-    var distanceToBottom = window.innerHeight - searchBarRect.bottom;
-    var singleHeight = (distanceToBottom - 10 - (children.length * 10)) / children.length;
+    var distanceToBottom = window.innerHeight - searchBarRect.bottom - 10;
+    var singleHeight = (distanceToBottom - (children.length * 10)) / children.length;
 
     var style = window.getComputedStyle(children[0], null);
     
-    var oneHeight = parseInt (style.getPropertyValue("height").replace ("px", ""));
+    var rawSingleHeight = parseInt (style.getPropertyValue("height").replace ("px", ""));
 
     console.log (distanceToBottom)
 
-    var paddingHeight = (singleHeight - oneHeight) / 2;
+    var paddingHeight = (singleHeight - rawSingleHeight) / 2;
 
-    if (paddingHeight < 20 || distanceToBottom < oneHeight * children.length) {
+    if (paddingHeight < 20 || distanceToBottom < rawSingleHeight * children.length) {
         $('searchHelp').style.marginTop = paddingHeight/2 + "px";
 
         for (var i = 0; i < children.length; i++) {
@@ -418,6 +357,15 @@ function handleNotes(event, focus) {
         }
     }
 }
+
+function handleMenu (event, focus) {
+    if (focus) {
+        addClass('mainMenuContainer', "active");
+    } else {
+        removeClass('mainMenuContainer', "active");
+    }
+}
+
 var ignoredKeys = [9, 13, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145];
 
 function handleKeydown(event) {
