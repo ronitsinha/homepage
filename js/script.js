@@ -361,6 +361,8 @@ function handleNotes(event, focus) {
 function handleMenu (event, focus) {
     if (focus) {
         addClass('mainMenuContainer', "active");
+        var adjustedHeight = window.innerHeight - $('mainMenuContainer').getBoundingClientRect().bottom;
+        $('mainMenuContainer').style.height = adjustedHeight + 'px';
     } else {
         removeClass('mainMenuContainer', "active");
     }
