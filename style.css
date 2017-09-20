@@ -1,5 +1,12 @@
+:root {
+    --bgcolor: #0d1011;
+    --containerColor: #1F2326;
+    --fontColor: #7291a1;
+    --searchAssistColor: #1a1d1f;
+}
+
 body {
- background:#0d1011;
+ background:var(--bgcolor);
  font-family:"Roboto",sans-serif;
  font-size:9pt;
  color:#fff;
@@ -16,7 +23,7 @@ ul,li {
  padding:0;
 }
 a,a:link,a:visited {
- color:#1F2326;
+ color:var(--containerColor);
  text-decoration:none;
 }
 a:hover,a:active {
@@ -26,7 +33,7 @@ textarea {
  font-family:"Roboto",sans-serif;
 }
 .background {
- background:#0d1011 url("./media/bg.jpg") no-repeat center fixed;
+ background:var(--bgcolor);
  background-size:cover;
  position:fixed;
  left:0;
@@ -45,7 +52,7 @@ textarea {
  min-height:50px;
  max-height:50px;
  border-radius:50px;
- background:#1F2326;
+ background:var(--containerColor);
  box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
 }
 .button label {
@@ -180,7 +187,7 @@ textarea {
  opacity:0;
 }
 #searchContainer {
- background-color:#1F2326;
+ background-color:var(--containerColor);
 
  transition:0.2s cubic-bezier(0.4,0.0,0.2,1);
  box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
@@ -201,7 +208,7 @@ textarea {
  transition:0.2s cubic-bezier(0.4,0.0,0.2,1);
 }
 #notesContainer, #mainMenuContainer {
- background:#1F2326;
+ background:var(--containerColor);
 }
 .center-flex {
  display:inline-flex;
@@ -216,7 +223,7 @@ textarea {
  background:transparent;
  font-size:1.76em;
  text-align:center;
- color:#7291a1;
+ color:var(--fontColor);
  padding:6px 0;
  display:block;
  width:100%;
@@ -300,7 +307,7 @@ textarea {
  bottom:20px;
 }
 .container-notes {
- background:#0d1011;
+ background:var(--bgcolor);
  border-radius:2px 50px 50px 2px;
  position:relative;
  max-height:48px;
@@ -328,7 +335,7 @@ textarea {
  outline:none;
  padding:16px;
  background:transparent;
- color:#7291a1;
+ color:var(--fontColor);
  resize:none;
  transition:min-height 0.2s cubic-bezier(0.4,0.0,0.2,1),opacity .2s ease;
  opacity:0;
@@ -389,7 +396,7 @@ textarea {
  font-size:1.4em;
 }
 .help-list li {
- background-color:#1F2326;
+ background-color:var(--containerColor);
  padding:20px 0;
  margin-bottom:10px;
  color:#a7b3b9;
@@ -410,7 +417,7 @@ textarea {
  margin-right:10px;
  padding:20px;
  width:90px;
- background-color:#1a1d1f;
+ background-color:var(--searchAssistColor);
 }
 .help-list li:nth-child(0) {
  transition-delay:0.2s;
