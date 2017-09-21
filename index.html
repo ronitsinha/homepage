@@ -41,9 +41,16 @@
 </div>
 
 <!-- this is what makes the grey tab -->
-<div id="notesInput"tabindex="2"
+<div id="mainMenuInput" tabindex="2"
                   onfocus="javascript:handleMenu(event,true)"
-                  onblur="javascript:handleMenu(event,false)"><p style="overflow-wrap: break-word; width: 272px;" >Testing testing 123, Testing testing 123, Testing testing 123, Testing testing 123</p></div>
+                  onblur="javascript:handleMenu(event,false)">
+                  <ul style="overflow-wrap: break-word; width: 272px;" >
+                  	<li>Background Color<input id="backgroundColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
+                  	<li>Container Color<input id="containerColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
+                  	<li>Font Color<input id="fontColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
+                  	<li>Search Assist Color<input id="searchAssistColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
+                  </ul>
+</div>
 </div>
 </div>
 

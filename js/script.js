@@ -359,9 +359,12 @@ function handleNotes(event, focus) {
 }
 
 function handleMenu (event, focus) {
+    var abortRemove = $('backgroundColor') === document.activeElement || $('containerColor') === document.activeElement || $('fontColor') === document.activeElement || $('searchAssistColor') === document.activeElement;
+    console.log (document.activeElement.id);
+
     if (focus) {
         addClass('mainMenuContainer', "active");
-    } else {
+    } else if (!abortRemove) {
         removeClass('mainMenuContainer', "active");
     }
 }
@@ -369,7 +372,7 @@ function handleMenu (event, focus) {
 var ignoredKeys = [9, 13, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145];
 
 function handleKeydown(event) {
-    if (notesInput === document.activeElement || searchInput === document.activeElement || ignoredKeys.includes(event.keyCode))
+    if (notesInput === document.activeElement || searchInput === document.activeElement || $('backgroundColor') === document.activeElement || $('containerColor') === document.activeElement || $('fontColor') === document.activeElement || $('searchAssistColor') === document.activeElement || ignoredKeys.includes(event.keyCode))
         return;
     searchInput.focus();
 }
