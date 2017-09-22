@@ -223,6 +223,18 @@ function init() {
         } else {
             $('body').style.setProperty('--searchAssistColor', GetCookie('searchAssistColor'));
         }
+    if (GetCookie('searchAssistFontColor'))
+        if (GetCookie('searchAssistFontColor') === ' ' || (GetCookie('searchAssistFontColor')) === '') {
+            DelCookie ('searchAssistFontColor');
+        } else {
+            $('body').style.setProperty('--searchAssistFontColor', GetCookie('searchAssistFontColor'));
+        }
+    if (GetCookie('dateFontColor'))
+        if (GetCookie('dateFontColor') === ' ' || (GetCookie('dateFontColor')) === '') {
+            DelCookie ('dateFontColor');
+        } else {
+            $('body').style.setProperty('--dateFontColor', GetCookie('dateFontColor'));
+        }
 }
 
 function initSearchBar() {
@@ -415,7 +427,7 @@ function handleMenu (event, id, focus) {
 var ignoredKeys = [9, 13, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145];
 
 function handleKeydown(event) {
-    if (notesInput === document.activeElement || searchInput === document.activeElement || $('backgroundColor') === document.activeElement || $('containerColor') === document.activeElement || $('fontColor') === document.activeElement || $('searchAssistColor') === document.activeElement || ignoredKeys.includes(event.keyCode))
+    if (notesInput === document.activeElement || searchInput === document.activeElement || $('backgroundColor') === document.activeElement || $('containerColor') === document.activeElement || $('fontColor') === document.activeElement || $('searchAssistColor') === document.activeElement || $('searchAssistFontColor') === document.activeElement || $('dateFontColor') === document.activeElement || ignoredKeys.includes(event.keyCode))
         return;
     searchInput.focus();
 }

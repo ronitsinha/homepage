@@ -3,6 +3,8 @@
     --containerColor: #1F2326;
     --fontColor: #7291a1;
     --searchAssistColor: #1a1d1f;
+    --searchAssistFontColor: #a7b3b9;
+    --dateFontColor:#FFF;
 }
 
 body {
@@ -291,11 +293,13 @@ textarea {
  transition:opacity 0.2s cubic-bezier(0.4,0.0,0.2,1) 0.05s;
 }
 .widget.align-right {
+ color:var(--dateFontColor);
  left:initial;
  right:20px;
  text-align:right;
 }
 .widget.align-right2 {
+ color:var(--dateFontColor);
  left:initial;
  right:20px;
  top:90px;
@@ -423,7 +427,7 @@ textarea {
  background-color:var(--containerColor);
  padding:20px 0;
  margin-bottom:10px;
- color:#a7b3b9;
+ color:var(--searchAssistFontColor);
  box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
  overflow:hidden;
  height:auto;
