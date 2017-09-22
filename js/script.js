@@ -191,6 +191,38 @@ function init() {
     $('dateContainer').style.opacity = 1;
     $('notesWidget').style.opacity = 1;
     $('mainMenuWidget').style.opacity = 1;
+
+
+    // Default colors
+    SetCookie ('backgroundColorDefault', '#0d1011', 365 * 24 * 60 * 60 * 1000);
+    SetCookie ('containerColorDefault', '#1F2326', 365 * 24 * 60 * 60 * 1000);
+    SetCookie ('fontColorDefault', '#7291a1', 365 * 24 * 60 * 60 * 1000);
+    SetCookie ('searchAssistColorDefault', '#1a1d1f', 365 * 24 * 60 * 60 * 1000);
+
+    if (GetCookie('backgroundColor'))
+        if (GetCookie('backgroundColor') === ' ' || (GetCookie('backgroundColor')) === '') {
+            DelCookie ('backgroundColor');
+        } else {
+            $('body').style.setProperty('--bgcolor', GetCookie('backgroundColor'));
+        }
+    if (GetCookie('containerColor'))
+        if (GetCookie('containerColor') === ' ' || (GetCookie('containerColor')) === '') {
+            DelCookie ('containerColor');
+        } else {
+            $('body').style.setProperty('--containerColor', GetCookie('containerColor'));
+        }
+    if (GetCookie('fontColor'))
+        if (GetCookie('fontColor') === ' ' || (GetCookie('fontColor')) === '') {
+            DelCookie ('fontColor');
+        } else {
+            $('body').style.setProperty('--fontColor', GetCookie('fontColor'));
+        }
+    if (GetCookie('searchAssistColor'))
+        if (GetCookie('searchAssistColor') === ' ' || (GetCookie('searchAssistColor')) === '') {
+            DelCookie ('searchAssistColor');
+        } else {
+            $('body').style.setProperty('--searchAssistColor', GetCookie('searchAssistColor'));
+        }
 }
 
 function initSearchBar() {
@@ -358,13 +390,24 @@ function handleNotes(event, focus) {
     }
 }
 
-function handleMenu (event, focus) {
+function handleMenu (event, id, focus) {
     var abortRemove = $('backgroundColor') === document.activeElement || $('containerColor') === document.activeElement || $('fontColor') === document.activeElement || $('searchAssistColor') === document.activeElement;
     console.log (document.activeElement.id);
 
     if (focus) {
         addClass('mainMenuContainer', "active");
     } else if (!abortRemove) {
+        if (id !== 'mainMenuInput') {
+            var element = $(id);
+            if (element.value === '' && element.value === ' ') {
+                if (GetCookie(id)) {
+                    DelCookie(id);
+                }
+            } else {
+                SetCookie (id, element.value, 365 * 24 * 60 * 60 * 1000);
+            }
+        }
+
         removeClass('mainMenuContainer', "active");
     }
 }

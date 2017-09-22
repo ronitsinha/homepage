@@ -42,13 +42,13 @@
 
 <!-- this is what makes the grey tab -->
 <div id="mainMenuInput" tabindex="2"
-                  onfocus="javascript:handleMenu(event,true)"
-                  onblur="javascript:handleMenu(event,false)">
+                  onfocus="javascript:handleMenu(event, 'mainMenuInput', true)"
+                  onblur="javascript:handleMenu(event, 'mainMenuInput', false)">
                   <ul style="overflow-wrap: break-word; width: 272px;" >
-                  	<li>Background Color<input id="backgroundColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
-                  	<li>Container Color<input id="containerColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
-                  	<li>Font Color<input id="fontColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
-                  	<li>Search Assist Color<input id="searchAssistColor" type="text" onfocus="javascript:handleMenu(event,true)" onblur="javascript:handleMenu(event,false)"></input></li>
+                  	<li>Background Color<input id="backgroundColor" type="text" onfocus="javascript:handleMenu(event, 'backgroundColor', true)" onblur="javascript:handleMenu(event, 'backgroundColor', false)"></input></li>
+                  	<li>Container Color<input id="containerColor" type="text" onfocus="javascript:handleMenu(event, 'containerColor', true)" onblur="javascript:handleMenu(event, 'containerColor', false)"></input></li>
+                  	<li>Font Color<input id="fontColor" type="text" onfocus="javascript:handleMenu(event, 'fontColor', true)" onblur="javascript:handleMenu(event, 'fontColor', false)"></input></li>
+                  	<li>Search Assist Color<input id="searchAssistColor" type="text" onfocus="javascript:handleMenu(event, 'searchAssistColor', true)" onblur="javascript:handleMenu(event, 'searchAssistColor', false)"></input></li>
                   </ul>
 </div>
 </div>
