@@ -364,7 +364,7 @@ function handleMenu (event, focus) {
 
     if (focus) {
         addClass('mainMenuContainer', "active");
-    } else if (!abortRemove) {
+    } else if (abortRemove) {
         removeClass('mainMenuContainer', "active");
     }
 }
