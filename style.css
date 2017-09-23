@@ -383,6 +383,7 @@ textarea {
   min-height:calc(100vh - 40px);
  }
 }
+
 .notes-icon {
  position:absolute;
  right:0px;
