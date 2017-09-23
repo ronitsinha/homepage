@@ -1,5 +1,5 @@
 :root {
-    --bgcolor: #0d1011;
+    --backgroundColor: #0d1011;
     --containerColor: #1F2326;
     --fontColor: #7291a1;
     --searchAssistColor: #1a1d1f;
@@ -8,7 +8,7 @@
 }
 
 body {
- background:var(--bgcolor);
+ background:var(--backgroundColor);
  font-family:"Roboto",sans-serif;
  font-size:9pt;
  color:#fff;
@@ -35,7 +35,7 @@ textarea {
  font-family:"Roboto",sans-serif;
 }
 .background {
- background:var(--bgcolor);
+ background:var(--backgroundColor);
  background-size:cover;
  position:fixed;
  left:0;
@@ -311,7 +311,7 @@ textarea {
  bottom:20px;
 }
 .container-notes {
- background:var(--bgcolor);
+ background:var(--backgroundColor);
  border-radius:2px 50px 50px 2px;
  position:relative;
  max-height:48px;

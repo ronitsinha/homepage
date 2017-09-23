@@ -199,42 +199,55 @@ function init() {
     SetCookie ('fontColorDefault', '#7291a1', 365 * 24 * 60 * 60 * 1000);
     SetCookie ('searchAssistColorDefault', '#1a1d1f', 365 * 24 * 60 * 60 * 1000);
 
-    if (GetCookie('backgroundColor'))
-        if (GetCookie('backgroundColor') === ' ' || (GetCookie('backgroundColor')) === '') {
-            DelCookie ('backgroundColor');
-        } else {
-            $('body').style.setProperty('--bgcolor', GetCookie('backgroundColor'));
+    var ids = ['backgroundColor', 'containerColor', 'fontColor', 'searchAssistColor', 'searchAssistFontColor', 'dateFontColor'];
+
+    for (var i = 0; i < ids.length; i ++) {
+        if (GetCookie(ids[i])) {
+            if (GetCookie(ids[i]) === ' ' || (GetCookie(ids[i])) === '') {
+                DelCookie (ids[i]);
+            } else {
+                $('body').style.setProperty('--'+ids[i], GetCookie(ids[i]));
+                $(ids[i]).value = GetCookie(ids[i]);
+            }
         }
-    if (GetCookie('containerColor'))
-        if (GetCookie('containerColor') === ' ' || (GetCookie('containerColor')) === '') {
-            DelCookie ('containerColor');
-        } else {
-            $('body').style.setProperty('--containerColor', GetCookie('containerColor'));
-        }
-    if (GetCookie('fontColor'))
-        if (GetCookie('fontColor') === ' ' || (GetCookie('fontColor')) === '') {
-            DelCookie ('fontColor');
-        } else {
-            $('body').style.setProperty('--fontColor', GetCookie('fontColor'));
-        }
-    if (GetCookie('searchAssistColor'))
-        if (GetCookie('searchAssistColor') === ' ' || (GetCookie('searchAssistColor')) === '') {
-            DelCookie ('searchAssistColor');
-        } else {
-            $('body').style.setProperty('--searchAssistColor', GetCookie('searchAssistColor'));
-        }
-    if (GetCookie('searchAssistFontColor'))
-        if (GetCookie('searchAssistFontColor') === ' ' || (GetCookie('searchAssistFontColor')) === '') {
-            DelCookie ('searchAssistFontColor');
-        } else {
-            $('body').style.setProperty('--searchAssistFontColor', GetCookie('searchAssistFontColor'));
-        }
-    if (GetCookie('dateFontColor'))
-        if (GetCookie('dateFontColor') === ' ' || (GetCookie('dateFontColor')) === '') {
-            DelCookie ('dateFontColor');
-        } else {
-            $('body').style.setProperty('--dateFontColor', GetCookie('dateFontColor'));
-        }
+    }
+
+    // if (GetCookie('backgroundColor'))
+    //     if (GetCookie('backgroundColor') === ' ' || (GetCookie('backgroundColor')) === '') {
+    //         DelCookie ('backgroundColor');
+    //     } else {
+    //         $('body').style.setProperty('--backgroundColor', GetCookie('backgroundColor'));
+    //     }
+    // if (GetCookie('containerColor'))
+    //     if (GetCookie('containerColor') === ' ' || (GetCookie('containerColor')) === '') {
+    //         DelCookie ('containerColor');
+    //     } else {
+    //         $('body').style.setProperty('--containerColor', GetCookie('containerColor'));
+    //     }
+    // if (GetCookie('fontColor'))
+    //     if (GetCookie('fontColor') === ' ' || (GetCookie('fontColor')) === '') {
+    //         DelCookie ('fontColor');
+    //     } else {
+    //         $('body').style.setProperty('--fontColor', GetCookie('fontColor'));
+    //     }
+    // if (GetCookie('searchAssistColor'))
+    //     if (GetCookie('searchAssistColor') === ' ' || (GetCookie('searchAssistColor')) === '') {
+    //         DelCookie ('searchAssistColor');
+    //     } else {
+    //         $('body').style.setProperty('--searchAssistColor', GetCookie('searchAssistColor'));
+    //     }
+    // if (GetCookie('searchAssistFontColor'))
+    //     if (GetCookie('searchAssistFontColor') === ' ' || (GetCookie('searchAssistFontColor')) === '') {
+    //         DelCookie ('searchAssistFontColor');
+    //     } else {
+    //         $('body').style.setProperty('--searchAssistFontColor', GetCookie('searchAssistFontColor'));
+    //     }
+    // if (GetCookie('dateFontColor'))
+    //     if (GetCookie('dateFontColor') === ' ' || (GetCookie('dateFontColor')) === '') {
+    //         DelCookie ('dateFontColor');
+    //     } else {
+    //         $('body').style.setProperty('--dateFontColor', GetCookie('dateFontColor'));
+    //     }
 }
 
 function initSearchBar() {
@@ -417,6 +430,8 @@ function handleMenu (event, id, focus) {
                 }
             } else {
                 SetCookie (id, element.value, 365 * 24 * 60 * 60 * 1000);
+                console.log ('--'+id+' set!');
+                $('body').style.setProperty('--'+id, GetCookie(id));
             }
         }
 
