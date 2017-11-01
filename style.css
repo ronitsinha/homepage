@@ -173,7 +173,7 @@ textarea {
  border-radius:2px;
 }
 .credits {
-	color:#808080 !important;
+	color: var(--fontColor) !important;
 	position:absolute;
     bottom:0;
     left:0;
