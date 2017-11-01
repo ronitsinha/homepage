@@ -35,7 +35,7 @@
 
 <!-- A main menu deal for setting background color and other preferences -->
 <div id="mainMenuWidget" class="widget" style="top:70px">
-<div id="mainMenuContainer" class="container-notes">
+<div id="mainMenuContainer" class="container-mainmenu">
 <div class="notes-icon">
 <!-- <svg style="width:24px;height:24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg> -->
 <!-- <img src="https://f.cl.ly/items/1U2c3b1215383h3a2T2r/icon-menu.svg"/> -->
@@ -45,8 +45,8 @@
 
 <!-- this is what makes the grey tab -->
 <div id="mainMenuInput" tabindex="2"
-                  onfocus="javascript:handleMenu(event, 'mainMenuInput', true)"
-                  onblur="javascript:handleMenu(event, 'mainMenuInput', false)">
+                  onfocus="javascript:handleMenu(event, 'mainMenuContainer', true)"
+                  onblur="javascript:handleMenu(event, 'mainMenuContainer', false)">
                   <ul style="overflow-wrap: break-word; width: 272px;" >
                   	<li><input placeholder="Background Color" class="main-menu-field" id="backgroundColor" type="text" onfocus="javascript:handleMenu(event, 'backgroundColor', true)" onblur="javascript:handleMenu(event, 'backgroundColor', false)"></input></li>
                   	<li><input placeholder="Container Color" class="main-menu-field" id="containerColor" type="text" onfocus="javascript:handleMenu(event, 'containerColor', true)" onblur="javascript:handleMenu(event, 'containerColor', false)"></input></li>

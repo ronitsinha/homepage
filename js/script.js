@@ -211,43 +211,6 @@ function init() {
             }
         }
     }
-
-    // if (GetCookie('backgroundColor'))
-    //     if (GetCookie('backgroundColor') === ' ' || (GetCookie('backgroundColor')) === '') {
-    //         DelCookie ('backgroundColor');
-    //     } else {
-    //         $('body').style.setProperty('--backgroundColor', GetCookie('backgroundColor'));
-    //     }
-    // if (GetCookie('containerColor'))
-    //     if (GetCookie('containerColor') === ' ' || (GetCookie('containerColor')) === '') {
-    //         DelCookie ('containerColor');
-    //     } else {
-    //         $('body').style.setProperty('--containerColor', GetCookie('containerColor'));
-    //     }
-    // if (GetCookie('fontColor'))
-    //     if (GetCookie('fontColor') === ' ' || (GetCookie('fontColor')) === '') {
-    //         DelCookie ('fontColor');
-    //     } else {
-    //         $('body').style.setProperty('--fontColor', GetCookie('fontColor'));
-    //     }
-    // if (GetCookie('searchAssistColor'))
-    //     if (GetCookie('searchAssistColor') === ' ' || (GetCookie('searchAssistColor')) === '') {
-    //         DelCookie ('searchAssistColor');
-    //     } else {
-    //         $('body').style.setProperty('--searchAssistColor', GetCookie('searchAssistColor'));
-    //     }
-    // if (GetCookie('searchAssistFontColor'))
-    //     if (GetCookie('searchAssistFontColor') === ' ' || (GetCookie('searchAssistFontColor')) === '') {
-    //         DelCookie ('searchAssistFontColor');
-    //     } else {
-    //         $('body').style.setProperty('--searchAssistFontColor', GetCookie('searchAssistFontColor'));
-    //     }
-    // if (GetCookie('dateFontColor'))
-    //     if (GetCookie('dateFontColor') === ' ' || (GetCookie('dateFontColor')) === '') {
-    //         DelCookie ('dateFontColor');
-    //     } else {
-    //         $('body').style.setProperty('--dateFontColor', GetCookie('dateFontColor'));
-    //     }
 }
 
 function initSearchBar() {
@@ -422,7 +385,7 @@ function handleMenu (event, id, focus) {
     if (focus) {
         addClass('mainMenuContainer', "active");
     } else if (!abortRemove) {
-        if (id !== 'mainMenuInput') {
+        if (id !== 'mainMenuContainer') {
             var element = $(id);
             if (element.value === '' && element.value === ' ') {
                 if (GetCookie(id)) {
