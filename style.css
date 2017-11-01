@@ -212,6 +212,13 @@ textarea {
 #notesContainer, #mainMenuContainer {
  background:var(--containerColor);
 }
+
+.main-menu-field {
+    background-color:var(--containerColor);
+    color : var(--fontColor);
+    border: none;
+}
+
 .center-flex {
  display:inline-flex;
  width:100%;
@@ -293,13 +300,13 @@ textarea {
  transition:opacity 0.2s cubic-bezier(0.4,0.0,0.2,1) 0.05s;
 }
 .widget.align-right {
- color:var(--dateFontColor);
+ color:var(--fontColor);
  left:initial;
  right:20px;
  text-align:right;
 }
 .widget.align-right2 {
- color:var(--dateFontColor);
+ color:var(--fontColor);
  left:initial;
  right:20px;
  top:90px;
@@ -398,7 +405,8 @@ textarea {
  opacity:0;
 }
 .notes-icon svg {
- fill:#ffd200;
+ /*fill:#ffd200;*/
+ fill: var(--backgroundColor);
 }
 .font-3em {
  font-size:3em;
@@ -428,7 +436,7 @@ textarea {
  background-color:var(--containerColor);
  padding:20px 0;
  margin-bottom:10px;
- color:var(--searchAssistFontColor);
+ color:var(--fontColor);
  box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
  overflow:hidden;
  height:auto;
