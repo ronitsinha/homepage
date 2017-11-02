@@ -217,6 +217,7 @@ textarea {
     background-color:var(--containerColor);
     color : var(--fontColor);
     border: none;
+    /*border-bottom: 2px solid var(--fontColor);*/
 }
 
 .center-flex {
@@ -429,10 +430,22 @@ textarea {
  align-items:center;
  transition:opacity .2s ease;
 }
+
+.main-menu-icon {
+ position:absolute;
+ right:0px;
+ width:45px;
+ height:338%;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ transition:opacity .2s ease;
+}
+
 .container-notes.active .notes-icon {
  opacity:0;
 }
-.container-mainmenu.active .notes-icon {
+.container-mainmenu.active .main-menu-icon {
  opacity:0;
 }
 
@@ -440,6 +453,12 @@ textarea {
  /*fill:#ffd200;*/
  fill: var(--backgroundColor);
 }
+
+.main-menu-icon svg {
+ fill: var(--backgroundColor);
+}
+
+
 .font-3em {
  font-size:3em;
 }
