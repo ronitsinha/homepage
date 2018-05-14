@@ -211,6 +211,11 @@ function init() {
             }
         }
     }
+
+    if (localStorage.getItem ('bgImg')) {
+        $('backgroundImage').src = localStorage.getItem ('bgImg');
+        $('backgroundImage').style.display = 'inline';
+    }
 }
 
 function initSearchBar() {
@@ -379,10 +384,14 @@ function handleNotes(event, focus) {
 }
 
 function handleMenu (event, id, focus) {
-    var abortRemove = $('backgroundColor') === document.activeElement || $('containerColor') === document.activeElement || $('fontColor') === document.activeElement || $('searchAssistColor') === document.activeElement;
+    var abortRemove = $('backgroundColor') === document.activeElement || $('containerColor') === document.activeElement || $('fontColor') === document.activeElement || $('searchAssistColor') === document.activeElement || $('bgImage') === document.activeElement;
     console.log (document.activeElement.id);
 
     if (focus) {
+        if (id === 'bgImage') {
+            $('bgimgupload').click();
+        }
+
         addClass('mainMenuContainer', "active");
     } else if (!abortRemove) {
         if (id !== 'mainMenuContainer') {
@@ -400,6 +409,30 @@ function handleMenu (event, id, focus) {
 
         removeClass('mainMenuContainer', "active");
     }
+}
+
+function bgImageUpload () {
+    var file = $('bgimgupload').files[0];
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+        $('backgroundImage').src = reader.result;
+        console.log ("complete!");
+        $('backgroundImage').style.display = 'inline';
+        localStorage.setItem('bgImg',reader.result);
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+        console.log ("image reading...")
+    }
+}
+
+function clearBgImage () {
+    localStorage.removeItem('bgImg');
+    $('backgroundImage').src = '';
+    $('backgroundImage').style.display = 'none';
+    alert ('Background Image Removed!');
 }
 
 var ignoredKeys = [9, 13, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145];

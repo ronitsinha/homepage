@@ -54,9 +54,12 @@
                   	<li><input placeholder="Container Color" class="main-menu-field" id="containerColor" type="text" onfocus="javascript:handleMenu(event, 'containerColor', true)" onblur="javascript:handleMenu(event, 'containerColor', false)"></input></li>
                   	<li><input placeholder="Font Color" class="main-menu-field" id="fontColor" type="text" onfocus="javascript:handleMenu(event, 'fontColor', true)" onblur="javascript:handleMenu(event, 'fontColor', false)"></input></li>
                   	<li><input placeholder="Search Assist Color" class="main-menu-field" id="searchAssistColor" type="text" onfocus="javascript:handleMenu(event, 'searchAssistColor', true)" onblur="javascript:handleMenu(event, 'searchAssistColor', false)"></input></li>
+                    <li class='image'><p style="display: inline;" onclick="handleMenu(event, 'bgImage', true)">Background Image </p><p id="clearBgImage" style="display: inline;" onclick="clearBgImage();">(Clear)</p></li>
                   	<!-- <li>Search Assist Font Color<input class="main-menu-field" id="searchAssistFontColor" type="text" onfocus="javascript:handleMenu(event, 'searchAssistFontColor', true)" onblur="javascript:handleMenu(event, 'searchAssistFontColor', false)"></input></li>
                   	<li>Date and Time Color<input class="main-menu-field" id="dateFontColor" type="text" onfocus="javascript:handleMenu(event, 'dateFontColor', true)" onblur="javascript:handleMenu(event, 'dateFontColor', false)"></input></li> -->
                   </ul>
+                  <a href="https://weboas.is/" class="credits">original site</a>
+
 </div>
 </div>
 </div>
@@ -69,6 +72,7 @@
   }
 </script>
 <script type="application/javascript" data-cfasync="false" src="https://api.ipify.org?format=jsonp&callback=getIP"></script></div>
-<a href="https://weboas.is/" class="credits">original site</a>
+<input type="file" id="bgimgupload" style="display:none" onchange="bgImageUpload();" /> 
+<img id="backgroundImage" src=""/>
 </body>
 </html>

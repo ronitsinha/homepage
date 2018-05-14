@@ -573,6 +573,7 @@ textarea {
  list-style:none;
  transform:skew(-25deg);
 }
+
 .skew-menu ul li {
  background:#fff;
  float:left;
@@ -600,4 +601,17 @@ textarea {
  color:inherit;
  text-decoration:none;
  transform:skew(25deg);
+}
+
+#backgroundImage {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.image {
+    font-family:'Product Sans',Arial,sans-serif;
+    font-size: 9pt;
+    font-weight: 300;
+    display: inline;
 }
