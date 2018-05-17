@@ -614,6 +614,10 @@ textarea {
     display: none;
 }
 
+#bgimgupload {
+    display: none;
+}
+
 .image {
     font-family:'Product Sans',Arial,sans-serif;
     font-size: 9pt;
