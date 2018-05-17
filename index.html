@@ -64,6 +64,29 @@
 </div>
 </div>
 
+<div id="contextMenu" class="context-menu">
+  <ul class="context-items">
+    <li class="context-menu__item">
+      <a href="#" class="context-link">
+        View Task
+      </a>
+    </li>
+    <li class="context-menu__item">
+      <a href="#" class="context-link">
+        Edit Task
+      </a>
+    </li>
+    <li class="context-menu__item">
+      <a href="#" class="context-link">
+        Delete Task
+      </a>
+    </li>
+  </ul>
+</div>
+
+<input type="file" id="bgimgupload" style="display:none" onchange="bgImageUpload();" /> 
+<img id="backgroundImage" src=""/>
+
 <div id="dateContainer" class="widget align-right"></div>
 <div class="widget align-right2">
 <script type="application/javascript">
@@ -72,7 +95,7 @@
   }
 </script>
 <script type="application/javascript" data-cfasync="false" src="https://api.ipify.org?format=jsonp&callback=getIP"></script></div>
-<input type="file" id="bgimgupload" style="display:none" onchange="bgImageUpload();" /> 
-<img id="backgroundImage" src=""/>
+
+
 </body>
 </html>

@@ -192,6 +192,21 @@ function init() {
     $('notesWidget').style.opacity = 1;
     $('mainMenuWidget').style.opacity = 1;
 
+    // document.addEventListener ('contextmenu', e => {
+    //     e.preventDefault ();
+    //     addClass('contextMenu', 'active');
+    //     positionMenu (e);
+    // }, false);
+
+    // document.addEventListener ('click', e => {
+    //     removeClass('contextMenu', 'active');
+    //     positionMenu (e);
+    // }, false);
+
+    // document.addEventListener ('keypress', e => {
+    //     if (e.keyCode)
+    // }, false);
+
 
     // Default colors
     SetCookie ('backgroundColorDefault', '#0d1011', 365 * 24 * 60 * 60 * 1000);
@@ -435,6 +450,37 @@ function clearBgImage () {
     alert ('Background Image Removed!');
 }
 
+function positionMenu(e) {
+  menuPosition = getPosition(e);
+  menuPositionX = menuPosition.x + "px";
+  menuPositionY = menuPosition.y + "px";
+
+  $('contextMenu').style.left = menuPositionX;
+  $('contextMenu').style.top = menuPositionY;
+}
+
+function getPosition(e) {
+  var posx = 0;
+  var posy = 0;
+
+  if (!e) var e = window.event;
+
+  if (e.pageX || e.pageY) {
+    posx = e.pageX;
+    posy = e.pageY;
+  } else if (e.clientX || e.clientY) {
+    posx = e.clientX + document.body.scrollLeft + 
+                       document.documentElement.scrollLeft;
+    posy = e.clientY + document.body.scrollTop + 
+                       document.documentElement.scrollTop;
+  }
+
+  return {
+    x: posx,
+    y: posy
+  }
+}
+
 var ignoredKeys = [9, 13, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145];
 
 function handleKeydown(event) {
@@ -444,7 +490,8 @@ function handleKeydown(event) {
 }
 
 function addClass(elementID, className) {
-    $(elementID).classList.add(className);
+    var el = $(elementID);
+    el.classList.add(className);
 }
 
 function removeClass(elementID, className) {
