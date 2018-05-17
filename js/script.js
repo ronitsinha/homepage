@@ -179,7 +179,14 @@ function focus () {
     searchInput.focus();
 }
 
-setTimeout (focus, 500);
+if (localStorage.getItem ('bgImg')) {
+    $('backgroundImage').src = localStorage.getItem ('bgImg');
+    $('backgroundImage').style.display = 'inline';
+} else {
+    $('body').style.setProperty('--imgAnimDuration', '0s');
+}
+
+setTimeout (focus, getComputedStyle($('body')).getPropertyValue('--imgAnimDuration').replace('s', '') * 1000 + 500);
 
 function init() {
     initSearchBar();
@@ -225,11 +232,6 @@ function init() {
                 $(ids[i]).value = GetCookie(ids[i]);
             }
         }
-    }
-
-    if (localStorage.getItem ('bgImg')) {
-        $('backgroundImage').src = localStorage.getItem ('bgImg');
-        $('backgroundImage').style.display = 'inline';
     }
 }
 

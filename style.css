@@ -5,6 +5,7 @@
     --searchAssistColor: #1a1d1f;
     --searchAssistFontColor: #a7b3b9;
     --dateFontColor:#FFF;
+    --imgAnimDuration: 0.8s;
 }
 
 body {
@@ -185,7 +186,7 @@ textarea {
     font-family:"Roboto",sans-serif;
 }
 #mainContainer {
- transition:opacity .8s ease .8s;
+ transition:opacity .8s ease calc(var(--imgAnimDuration) + .1s);
  opacity:0;
 }
 #searchContainer {
@@ -212,7 +213,7 @@ textarea {
 #notesContainer, #mainMenuContainer {
  background:var(--containerColor);
  animation-name: menuslide;
- animation-duration: 2s;
+ animation-duration: calc(var(--imgAnimDuration) + 1.2s);
 }
 
 .main-menu-field {
@@ -609,7 +610,7 @@ textarea {
     width: 100%;
     height: 100%;
     animation-name: imgzoom;
-    animation-duration: .8s;
+    animation-duration: var(--imgAnimDuration);
     display: none;
 }
 
