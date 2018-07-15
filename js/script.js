@@ -8,6 +8,7 @@ var cmdPrefix = "!";
 var ssi = 0;
 var searchSources = [
     ["g", "https://www.google.com/?gws_rd=ssl#q={Q}", "Google"],
+    ["u", "{Q}", "URL"],
     ["d", "https://duckduckgo.com/?q={Q}", "DuckDuckGo"],
     ["b", "https://www.bing.com/search?q={Q}", "Bing"],
     ["s", "https://us.startpage.com/do/search?query={Q}&prf=d5e8df9006b1f8a90e463eac18371b54", "StartPage"],
@@ -199,22 +200,6 @@ function init() {
     $('notesWidget').style.opacity = 1;
     $('mainMenuWidget').style.opacity = 1;
 
-    // document.addEventListener ('contextmenu', e => {
-    //     e.preventDefault ();
-    //     addClass('contextMenu', 'active');
-    //     positionMenu (e);
-    // }, false);
-
-    // document.addEventListener ('click', e => {
-    //     removeClass('contextMenu', 'active');
-    //     positionMenu (e);
-    // }, false);
-
-    // document.addEventListener ('keypress', e => {
-    //     if (e.keyCode)
-    // }, false);
-
-
     // Default colors
     SetCookie ('backgroundColorDefault', '#0d1011', 365 * 24 * 60 * 60 * 1000);
     SetCookie ('containerColorDefault', '#1F2326', 365 * 24 * 60 * 60 * 1000);
@@ -363,13 +348,29 @@ function handleQuery(event, query) {
                     }
                 }
                 if (qList.length > 1) {
-                    window.location = searchSources[ssi][1].replace("{Q}", encodeURIComponent(query.replace(keyword, ""))).trim();
+                    if (ssi != 1) {
+                        window.location = searchSources[ssi][1].replace("{Q}", encodeURIComponent(query.replace(keyword, ""))).trim();
+                    } else {
+                        if (query.startsWith('https://') || query.startsWith('http://')) {
+                            window.location = searchSources[ssi][1].replace("{Q}", (query)).trim();
+                        } else {
+                            window.location = searchSources[ssi][1].replace("{Q}", ('https://' + query)).trim();
+                        }
+                    }
                 } else {
                     searchInput.placeholder = searchSources[ssi][2];
                     searchInput.value = "";
                 }
             } else {
-                window.location = searchSources[ssi][1].replace("{Q}", encodeURIComponent(query));
+                if (ssi != 1) {
+                    window.location = searchSources[ssi][1].replace("{Q}", encodeURIComponent(query));
+                } else {
+                    if (query.startsWith('https://') || query.startsWith('http://')) {
+                        window.location = searchSources[ssi][1].replace("{Q}", (query)).trim();
+                    } else {
+                        window.location = searchSources[ssi][1].replace("{Q}", ('https://' + query)).trim();
+                    }
+                }
             }
         }
     }
